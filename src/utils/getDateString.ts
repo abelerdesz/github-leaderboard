@@ -8,11 +8,11 @@ export default function getTimeZoneAdjustedStartDate(
   date: Date,
   daysAgo: number
 ) {
-  let now = new Date();
-  const timeZoneOffsetMinutes = now.getTimezoneOffset();
-  const startDate = sub(new Date(now), {
+  const timeZoneOffsetMinutes = date.getTimezoneOffset();
+  const startDate = sub(new Date(date), {
     minutes: timeZoneOffsetMinutes,
     days: daysAgo
   });
+
   return format(startDate, "yyyy-MM-dd");
 }
