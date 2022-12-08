@@ -1,4 +1,3 @@
-import "./App.css";
 import { Container, ThemeProvider } from "@mui/material";
 import theme from "./theme/theme";
 import RepositoryBrowser from "./components/RepositoryBrowser";
