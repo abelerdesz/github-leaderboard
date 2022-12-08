@@ -7,7 +7,7 @@ interface Props {
 }
 /**
  * A simple, accessible tab panel.
- * The "hidden" HTML attribute makes sure it is hidden from all presentations, including, for instance, screen readers.
+ * The "hidden" HTML attribute makes sure it is hidden from all presentations, including screen readers.
  */
 export default function TabPanel({ value, currentValue, children }: Props) {
   return (

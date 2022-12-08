@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
-import { RepositoriesResponse, Repository } from "../../models/Repository";
+import { RepositoriesResponse, Repository } from "models/Repository";
 import { Alert, Box, Grid, Tab, Tabs } from "@mui/material";
-import useLocalStorage from "../../hooks/useLocalStorage";
-import RepositoryList from "../RepositoryList";
-import getTimeZoneAdjustedStartDate from "../../utils/getDateString";
-import TabPanel from "../TabPanel";
-import RepositoryLanguageFilter from "../RepositoryLanguageFilter";
+import useLocalStorage from "hooks/useLocalStorage";
+import getTimeZoneAdjustedStartDate from "utils/getDateString";
+import RepositoryList from "components/RepositoryList";
+import TabPanel from "components/TabPanel";
+import RepositoryLanguageFilter from "components/RepositoryLanguageFilter";
 
 export default function RepositoryBrowser() {
   const SEARCH_TIMESPAN_DAYS = 7;
 
-  const [repositories, setRepos] = useState<Repository[]>([]);
+  const [repositories, setRepositories] = useState<Repository[]>([]);
   const [error, setError] = useState(false);
   const [currentTab, setCurrentTab] = useState("all");
   const [favoriteRepositoryIds, setFavoriteRepositoryIds] = useLocalStorage<
@@ -66,7 +66,7 @@ export default function RepositoryBrowser() {
           `https://api.github.com/search/repositories?q=created:%3E${startDateString}&sort=stars&order=desc`
         ).then((response) => response.json());
 
-        setRepos(repositories.items);
+        setRepositories(repositories.items);
         setAllLanguages(extractRepositoryLanguages(repositories.items));
       } catch {
         setError(true);
@@ -100,7 +100,7 @@ export default function RepositoryBrowser() {
       <Box mt={4}>
         {error && (
           <Alert severity="error">
-            There was an error while fetching repositories.
+            An error happened while fetching repositories.
           </Alert>
         )}
         <TabPanel currentValue={currentTab} value="all">

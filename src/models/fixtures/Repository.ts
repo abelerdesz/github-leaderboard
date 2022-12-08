@@ -1,4 +1,4 @@
-export default {
+const RepositoryFixture = {
   total_count: 37700595,
   incomplete_results: true,
   items: [
@@ -142,3 +142,5 @@ export default {
     }
   ]
 };
+
+export default RepositoryFixture;

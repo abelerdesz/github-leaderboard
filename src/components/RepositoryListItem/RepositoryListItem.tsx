@@ -4,9 +4,9 @@ import {
   ListItemAvatar,
   ListItemSecondaryAction
 } from "@mui/material";
-import { Repository } from "../../models/Repository";
-import FavoriteButton from "../FavoriteButton";
-import RepositoryListItemText from "../RepositoryListItemText";
+import { Repository } from "models/Repository";
+import FavoriteButton from "components/FavoriteButton";
+import RepositoryListItemText from "components/RepositoryListItemText";
 
 interface Props {
   repository: Repository;

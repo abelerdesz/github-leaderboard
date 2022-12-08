@@ -22,6 +22,7 @@ export default function useLocalStorage<T = any>(
       return initialValue;
     }
   });
+
   // Return a wrapped version of useState's setter function that ...
   // ... persists the new value to localStorage.
   const setValue = (value: SetStateAction<T>) => {

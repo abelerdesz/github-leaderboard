@@ -1,5 +1,5 @@
 import { Box, Chip, ListItemText, Typography, Link } from "@mui/material";
-import { Repository } from "../../models/Repository";
+import { Repository } from "models/Repository";
 
 interface Props {
   repository: Repository;
@@ -28,7 +28,7 @@ export default function RepositoryListItemText({ repository }: Props) {
           </Typography>
           <Box display="flex" mt={2}>
             <Typography variant="body2" color="text.secondary">
-              {repository.language && (
+              {repository.language?.length && (
                 <>
                   <Chip label={repository.language} size="small" />
                   <Typography sx={{ mx: 1 }} component="span">

@@ -1,6 +1,6 @@
 import { List } from "@mui/material";
-import { Repository } from "../../models/Repository";
-import RepositoryListItem from "../RepositoryListItem";
+import { Repository } from "models/Repository";
+import RepositoryListItem from "components/RepositoryListItem";
 
 interface Props {
   displayedRepositories: Repository[];
