@@ -10,6 +10,7 @@ import RepositoryLanguageFilter from "components/RepositoryLanguageFilter";
 export default function RepositoryBrowser() {
   const SEARCH_TIMESPAN_DAYS = 7;
 
+  const [isLoading, setIsLoading] = useState(true);
   const [repositories, setRepositories] = useState<Repository[]>([]);
   const [error, setError] = useState(false);
   const [currentTab, setCurrentTab] = useState("all");
@@ -68,8 +69,10 @@ export default function RepositoryBrowser() {
 
         setRepositories(repositories.items);
         setAllLanguages(extractRepositoryLanguages(repositories.items));
+        setIsLoading(false);
       } catch {
         setError(true);
+        setIsLoading(false);
       }
     }
 
@@ -110,22 +113,26 @@ export default function RepositoryBrowser() {
             An error happened while fetching repositories.
           </Alert>
         )}
-        <TabPanel currentValue={currentTab} value="all">
-          <RepositoryList
-            displayedRepositories={filteredRepositories}
-            favoriteRepositoryIds={favoriteRepositoryIds}
-            onFavorite={onAddRepositoryToFavorites}
-            prefix="all"
-          />
-        </TabPanel>
-        <TabPanel currentValue={currentTab} value="favorites">
-          <RepositoryList
-            displayedRepositories={favoritedAndFilteredRepositories}
-            favoriteRepositoryIds={favoriteRepositoryIds}
-            onFavorite={onAddRepositoryToFavorites}
-            prefix="favorites"
-          />
-        </TabPanel>
+        {!isLoading && (
+          <>
+            <TabPanel currentValue={currentTab} value="all">
+              <RepositoryList
+                displayedRepositories={filteredRepositories}
+                favoriteRepositoryIds={favoriteRepositoryIds}
+                onFavorite={onAddRepositoryToFavorites}
+                prefix="all"
+              />
+            </TabPanel>
+            <TabPanel currentValue={currentTab} value="favorites">
+              <RepositoryList
+                displayedRepositories={favoritedAndFilteredRepositories}
+                favoriteRepositoryIds={favoriteRepositoryIds}
+                onFavorite={onAddRepositoryToFavorites}
+                prefix="favorites"
+              />
+            </TabPanel>
+          </>
+        )}
       </Box>
     </>
   );
