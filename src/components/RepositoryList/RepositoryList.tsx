@@ -6,12 +6,14 @@ interface Props {
   displayedRepositories: Repository[];
   favoriteRepositoryIds: number[];
   onFavorite: (id: number) => void;
+  prefix: string;
 }
 
 export default function RepositoryList({
   displayedRepositories,
   favoriteRepositoryIds,
-  onFavorite
+  onFavorite,
+  prefix
 }: Props) {
   return (
     <List>
@@ -20,6 +22,7 @@ export default function RepositoryList({
           repository={repository}
           isFavorite={favoriteRepositoryIds.includes(repository.id)}
           onFavorite={onFavorite}
+          key={`${prefix}-${repository.id}`}
         />
       ))}
     </List>

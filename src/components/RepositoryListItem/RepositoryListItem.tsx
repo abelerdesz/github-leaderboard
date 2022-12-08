@@ -21,7 +21,7 @@ export default function RepositoryListItem({
 }: Props) {
   return (
     // todo use boxes instead of sx
-    <ListItem sx={{ py: 2 }} key={repository.id} disableGutters>
+    <ListItem sx={{ py: 2 }} disableGutters>
       {/* todo use theme.spacing */}
       <ListItemAvatar sx={{ minWidth: 108 }}>
         <Avatar

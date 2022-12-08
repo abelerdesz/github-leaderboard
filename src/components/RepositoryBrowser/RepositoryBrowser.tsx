@@ -108,6 +108,7 @@ export default function RepositoryBrowser() {
             displayedRepositories={filteredRepositories}
             favoriteRepositoryIds={favoriteRepositoryIds}
             onFavorite={onAddRepositoryToFavorites}
+            prefix="all"
           />
         </TabPanel>
         <TabPanel currentValue={currentTab} value="favorites">
@@ -115,6 +116,7 @@ export default function RepositoryBrowser() {
             displayedRepositories={favoritedAndFilteredRepositories}
             favoriteRepositoryIds={favoriteRepositoryIds}
             onFavorite={onAddRepositoryToFavorites}
+            prefix="favorites"
           />
         </TabPanel>
       </Box>
