@@ -3,22 +3,22 @@ import { Repository } from "../../models/Repository";
 import RepositoryListItem from "../RepositoryListItem";
 
 interface Props {
-  displayedRepos: Repository[];
-  favoriteRepoIds: number[];
+  displayedRepositories: Repository[];
+  favoriteRepositoryIds: number[];
   onFavorite: (id: number) => void;
 }
 
 export default function RepositoryList({
-  displayedRepos,
-  favoriteRepoIds,
+  displayedRepositories,
+  favoriteRepositoryIds,
   onFavorite
 }: Props) {
   return (
     <List>
-      {displayedRepos.map((repository) => (
+      {displayedRepositories.map((repository) => (
         <RepositoryListItem
           repository={repository}
-          favoriteRepoIds={favoriteRepoIds}
+          isFavorite={favoriteRepositoryIds.includes(repository.id)}
           onFavorite={onFavorite}
         />
       ))}

@@ -36,7 +36,7 @@ export default function FavoriteButton({
           color="secondary.dark"
           sx={{ mt: 1 }}
         >
-          {starCount}
+          {isActive ? starCount + 1 : starCount}
         </Typography>
       </Box>
     </Button>
