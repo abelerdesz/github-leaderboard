@@ -1,8 +1,6 @@
-import { Star, StarOutline } from "@mui/icons-material";
 import {
   Avatar,
   Box,
-  Button,
   Chip,
   Link,
   ListItem,
@@ -11,7 +9,6 @@ import {
   ListItemText,
   Typography
 } from "@mui/material";
-import { yellow } from "@mui/material/colors";
 import { Repository } from "../../models/Repository";
 import FavoriteButton from "../FavoriteButton";
 
