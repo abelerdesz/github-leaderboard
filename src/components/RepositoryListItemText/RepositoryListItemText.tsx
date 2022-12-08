@@ -27,7 +27,11 @@ export default function RepositoryListItemText({ repository }: Props) {
             {repository.description}
           </Typography>
           <Box display="flex" mt={2}>
-            <Typography variant="body2" color="text.secondary">
+            <Typography
+              variant="body2"
+              color="text.secondary"
+              component="aside"
+            >
               {repository.language?.length && (
                 <>
                   <Chip label={repository.language} size="small" />
