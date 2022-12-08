@@ -81,8 +81,8 @@ export default function RepositoryBrowser() {
 
   return (
     <>
-      <Grid container mt={5}>
-        <Grid item sm={4} order={{ xs: 3, sm: 1 }}>
+      <Grid container mt={{ xs: 4, sm: 5 }}>
+        <Grid item sm={4} order={{ xs: 3, sm: 1 }} mt={{ xs: 3, sm: 0 }}>
           <Tabs
             value={currentTab}
             onChange={(_, value) => setCurrentTab(value)}
@@ -107,13 +107,13 @@ export default function RepositoryBrowser() {
           />
         </Grid>
       </Grid>
-      <Box my={4}>
+      <Box my={{ xs: 2, sm: 4 }}>
         {error && (
           <Alert severity="error">
-            An error happened while fetching repositories.
+            An unknown error happened while fetching repositories.
           </Alert>
         )}
-        {!isLoading && (
+        {!error && !isLoading && (
           <>
             <TabPanel currentValue={currentTab} value="all">
               <RepositoryList

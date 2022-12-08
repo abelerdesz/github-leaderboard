@@ -40,7 +40,7 @@ export default function RepositoryListItemText({ repository }: Props) {
                 </>
               )}
               {repository.owner && (
-                <>
+                <Box component="span" display={{ xs: "none", sm: "inline" }}>
                   by{" "}
                   <Link href={repository.owner.html_url}>
                     {repository.owner?.login}
@@ -48,7 +48,7 @@ export default function RepositoryListItemText({ repository }: Props) {
                   <Typography mx={1} component="span">
                     ·
                   </Typography>
-                </>
+                </Box>
               )}
               <Link href={repository.html_url} target="_blank">
                 View on GitHub
