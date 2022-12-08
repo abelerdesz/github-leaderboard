@@ -39,7 +39,13 @@ export default function RepositoryLanguageFilter({
         labelId="language-select-label"
         value={favoriteLanguages}
         onChange={(event) => onSelection(event.target.value)}
-        input={<OutlinedInput label="Languages" size="small" />}
+        input={
+          <OutlinedInput
+            label="Languages"
+            size="small"
+            inputProps={{ "data-testid": "language-select" }}
+          />
+        }
         renderValue={(selected) => (
           <Typography variant="body2" pt={0.5}>
             {selected.join(", ")}
