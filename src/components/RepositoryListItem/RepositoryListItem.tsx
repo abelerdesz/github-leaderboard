@@ -44,13 +44,15 @@ export default function RepositoryListItem({
         }
         secondary={
           <>
-            <Typography color="text.secondary">
+            <Typography
+              color="text.secondary"
+              overflow="hidden"
+              whiteSpace="nowrap"
+              textOverflow="ellipsis"
+              mr={8}
+            >
               {/* todo just use text-ellipsis */}
-              {repository.description?.substring(0, 70)}
-              {repository.description?.length &&
-              repository.description?.length >= 70
-                ? "..."
-                : ""}
+              {repository.description}
             </Typography>
             <Box display="flex" mt={2}>
               <Typography variant="body2" color="text.secondary">
