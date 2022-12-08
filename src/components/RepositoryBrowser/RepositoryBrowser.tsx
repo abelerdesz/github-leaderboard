@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import { RepositoriesResponse, Repository } from "models/Repository";
 import { Alert, Box, Grid, Tab, Tabs } from "@mui/material";
 import useLocalStorage from "hooks/useLocalStorage";
-import getTimeZoneAdjustedStartDate from "utils/getTimeZoneAdjustedStartDate";
+import getTimeZoneAdjustedStartDate, {
+  getApiUrl
+} from "utils/getTimeZoneAdjustedStartDate";
 import RepositoryList from "components/RepositoryList";
 import TabPanel from "components/TabPanel";
 import RepositoryLanguageFilter from "components/RepositoryLanguageFilter";
 
 export default function RepositoryBrowser() {
-  const SEARCH_TIMESPAN_DAYS = 7;
-
   const [isLoading, setIsLoading] = useState(true);
   const [repositories, setRepositories] = useState<Repository[]>([]);
   const [error, setError] = useState(false);
@@ -57,21 +57,18 @@ export default function RepositoryBrowser() {
     }
 
     async function fetchRepositories() {
-      const startDateString = getTimeZoneAdjustedStartDate(
-        new Date(),
-        SEARCH_TIMESPAN_DAYS
-      );
+      const startDateString = getTimeZoneAdjustedStartDate(new Date());
 
       try {
         const repositories: RepositoriesResponse = await fetch(
-          `https://api.github.com/search/repositories?q=created:%3E${startDateString}&sort=stars&order=desc`
+          getApiUrl(startDateString)
         ).then((response) => response.json());
 
         setRepositories(repositories.items);
         setAllLanguages(extractRepositoryLanguages(repositories.items));
-        setIsLoading(false);
       } catch {
         setError(true);
+      } finally {
         setIsLoading(false);
       }
     }
