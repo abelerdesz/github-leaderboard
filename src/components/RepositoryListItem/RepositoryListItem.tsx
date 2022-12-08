@@ -73,11 +73,11 @@ export default function RepositoryListItem({
                     <Typography sx={{ mx: 1 }} component="span">
                       ·
                     </Typography>
-                    <Link href={repository.html_url} target="_blank">
-                      View on GitHub
-                    </Link>{" "}
                   </>
                 )}
+                <Link href={repository.html_url} target="_blank">
+                  View on GitHub
+                </Link>{" "}
               </Typography>
             </Box>
           </>
