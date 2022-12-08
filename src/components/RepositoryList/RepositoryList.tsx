@@ -27,8 +27,8 @@ export default function RepositoryList({
           />
         ))
       ) : (
-        <Alert severity="warning" variant="outlined">
-          No results, please try a broader search!
+        <Alert severity="info" variant="outlined" sx={{ opacity: 0.8 }}>
+          There's nothing to see here yet!
         </Alert>
       )}
     </List>
