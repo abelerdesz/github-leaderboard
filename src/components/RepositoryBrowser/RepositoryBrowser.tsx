@@ -79,7 +79,7 @@ export default function RepositoryBrowser() {
   return (
     <>
       <Grid container mt={{ xs: 4, sm: 5 }}>
-        <Grid item sm={4} order={{ xs: 3, sm: 1 }} mt={{ xs: 3, sm: 0 }}>
+        <Grid item sm={6} md={4} order={{ xs: 3, sm: 1 }} mt={{ xs: 3, sm: 0 }}>
           <Tabs
             value={currentTab}
             onChange={(_, value) => setCurrentTab(value)}
@@ -88,11 +88,12 @@ export default function RepositoryBrowser() {
             <Tab value="favorites" label="Favorites" />
           </Tabs>
         </Grid>
-        <Grid item xs={0} sm={5} order={2} />
+        <Grid item xs={0} sm={1} md={5} order={2} />
         <Grid
           item
           xs={12}
-          sm={3}
+          sm={5}
+          md={3}
           display="flex"
           alignItems="flex-end"
           order={{ xs: 1, sm: 3 }}
