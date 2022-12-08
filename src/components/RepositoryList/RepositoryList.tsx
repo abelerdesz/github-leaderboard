@@ -1,4 +1,4 @@
-import { List } from "@mui/material";
+import { Alert, List } from "@mui/material";
 import { Repository } from "models/Repository";
 import RepositoryListItem from "components/RepositoryListItem";
 
@@ -17,14 +17,20 @@ export default function RepositoryList({
 }: Props) {
   return (
     <List>
-      {displayedRepositories.map((repository) => (
-        <RepositoryListItem
-          repository={repository}
-          isFavorite={favoriteRepositoryIds.includes(repository.id)}
-          onFavorite={onFavorite}
-          key={`${prefix}-${repository.id}`}
-        />
-      ))}
+      {displayedRepositories.length ? (
+        displayedRepositories.map((repository) => (
+          <RepositoryListItem
+            repository={repository}
+            isFavorite={favoriteRepositoryIds.includes(repository.id)}
+            onFavorite={onFavorite}
+            key={`${prefix}-${repository.id}`}
+          />
+        ))
+      ) : (
+        <Alert severity="warning" variant="outlined">
+          No results, please try a broader search!
+        </Alert>
+      )}
     </List>
   );
 }
