@@ -1,6 +1,7 @@
 import { Star, StarOutline } from "@mui/icons-material";
 import { Box, Button, Typography } from "@mui/material";
 import { yellow } from "@mui/material/colors";
+import theme from "theme/theme";
 
 interface Props {
   starCount: number;
@@ -20,7 +21,7 @@ export default function FavoriteButton({
       size="large"
       onClick={onClick}
       sx={{
-        minWidth: 80,
+        minWidth: theme.spacing(10),
         borderColor: isActive ? yellow[600] : "secondary"
       }}
     >
@@ -34,7 +35,7 @@ export default function FavoriteButton({
           variant="body2"
           fontWeight={600}
           color="secondary.dark"
-          sx={{ mt: 1 }}
+          mt={1}
         >
           {isActive ? starCount + 1 : starCount}
         </Typography>

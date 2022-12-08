@@ -23,7 +23,6 @@ export default function RepositoryListItemText({ repository }: Props) {
             textOverflow="ellipsis"
             mr={9}
           >
-            {/* todo just use text-ellipsis */}
             {repository.description}
           </Typography>
           <Box display="flex" mt={2}>
@@ -35,7 +34,7 @@ export default function RepositoryListItemText({ repository }: Props) {
               {repository.language?.length && (
                 <>
                   <Chip label={repository.language} size="small" />
-                  <Typography sx={{ mx: 1 }} component="span">
+                  <Typography mx={1} component="span">
                     ·
                   </Typography>
                 </>
@@ -46,7 +45,7 @@ export default function RepositoryListItemText({ repository }: Props) {
                   <Link href={repository.owner.html_url}>
                     {repository.owner?.login}
                   </Link>{" "}
-                  <Typography sx={{ mx: 1 }} component="span">
+                  <Typography mx={1} component="span">
                     ·
                   </Typography>
                 </>
