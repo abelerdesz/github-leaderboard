@@ -79,7 +79,7 @@ export default function RepositoryBrowser() {
   return (
     <>
       <Grid container mt={5}>
-        <Grid item xs={4}>
+        <Grid item sm={4} order={{ xs: 3, sm: 1 }}>
           <Tabs
             value={currentTab}
             onChange={(_, value) => setCurrentTab(value)}
@@ -88,8 +88,15 @@ export default function RepositoryBrowser() {
             <Tab value="favorites" label="Favorites" />
           </Tabs>
         </Grid>
-        <Grid item xs={5} />
-        <Grid item xs={3} display="flex" alignItems="flex-end">
+        <Grid item xs={0} sm={5} order={2} />
+        <Grid
+          item
+          xs={12}
+          sm={3}
+          display="flex"
+          alignItems="flex-end"
+          order={{ xs: 1, sm: 3 }}
+        >
           <RepositoryLanguageFilter
             favoriteLanguages={favoriteLanguages}
             setFavoriteLanguages={setFavoriteLanguages}
@@ -97,7 +104,7 @@ export default function RepositoryBrowser() {
           />
         </Grid>
       </Grid>
-      <Box mt={4}>
+      <Box my={4}>
         {error && (
           <Alert severity="error">
             An error happened while fetching repositories.
