@@ -1,9 +1,9 @@
-import RepositoryFixture from "./fixtures/Repository";
+import RepositoryResponseFixture from "./fixtures/RepositoryResponse";
 
 type MakeOptional<Type, Key extends keyof Type> = Omit<Type, Key> &
   Partial<Pick<Type, Key>>;
 
-type InferredRepositoryType = typeof RepositoryFixture["items"][0];
+type InferredRepositoryType = typeof RepositoryResponseFixture["items"][0];
 
 export type Repository = MakeOptional<
   InferredRepositoryType,
