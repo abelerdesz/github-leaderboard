@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { RepositoriesResponse, Repository } from "models/Repository";
 import { Alert, Box, Grid, Tab, Tabs } from "@mui/material";
 import useLocalStorage from "hooks/useLocalStorage";
-import getTimeZoneAdjustedStartDate from "utils/getDateString";
+import getTimeZoneAdjustedStartDate from "utils/getTimeZoneAdjustedStartDate";
 import RepositoryList from "components/RepositoryList";
 import TabPanel from "components/TabPanel";
 import RepositoryLanguageFilter from "components/RepositoryLanguageFilter";
